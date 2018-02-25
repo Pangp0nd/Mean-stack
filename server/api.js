@@ -51,7 +51,7 @@ router.delete('/delete/:name',function(req,res){
 
         const db = client.db(dbName);  
         db.collection(colName)
-        .deleteMany(query, (err, result)=>{
+        .deleteOne(query, (err, result)=>{
             if(err) throw err
             const resp = {
                 result : 'ok', 
@@ -62,6 +62,5 @@ router.delete('/delete/:name',function(req,res){
         client.close()
     })
 })
-
 
 module.exports = router

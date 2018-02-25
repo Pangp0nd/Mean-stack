@@ -16,13 +16,16 @@ export class AppComponent {
       this.onLoad()
   }
   onAdd(){
+    
     this.dataService.addData(this.name).subscribe(res=>{
+      console.log(this.name)
       console.log(res)
       this.onLoad()
     })
   }
-  onDel(name){
-    this.dataService.delData(name).subscribe(res=>{
+  onDel(data){
+    this.dataService.delData(data.name).subscribe(res=>{
+      console.log(data.name)
       console.log(res)
       this.onLoad()
     })

@@ -15,7 +15,7 @@ export class DataService {
     return this.http.post('/api/add',data).map(res=>res.json().message)
   }
   delData(input){
-    console.log(input)
+    
     return this.http.delete('/api/delete/'+input).map(res=>res.json().message)
   }
 }

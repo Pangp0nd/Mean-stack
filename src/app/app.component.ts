@@ -24,8 +24,7 @@ export class AppComponent {
     })
   }
   onDel(data){
-    this.dataService.delData(data.name).subscribe(res=>{
-      console.log(data.name)
+    this.dataService.delData(data._id).subscribe(res=>{      
       console.log(res)
       this.onLoad()
     })

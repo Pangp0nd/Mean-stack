@@ -4,7 +4,8 @@ const MongoClient = require('mongodb').MongoClient
 const mongoUrl = "mongodb://localhost:27017"
 const dbName = "testmongo"
 const colName = "testcollec"
-
+const mongodb = require("mongodb")
+const ObjectID = mongodb.ObjectID
 
 router.get('/show',function(req,res){
     MongoClient.connect(mongoUrl,function (err, client) {
@@ -44,10 +45,11 @@ router.post('/add',function(req,res){
     })
 })
 
-router.delete('/delete/:name',function(req,res){
+router.delete('/delete/:id',function(req,res){
     MongoClient.connect(mongoUrl,function (err, client) {
-        
-        const query = { name : req.params.name }
+        var id = ObjectID(req.params.id)
+
+        const query = { _id : id }
 
         const db = client.db(dbName);  
         db.collection(colName)
